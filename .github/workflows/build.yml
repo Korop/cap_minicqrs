@@ -1,0 +1,57 @@
+name: build
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Restore
+        run: dotnet restore Cap.MiniCqrs.sln
+
+      - name: Build
+        run: dotnet build Cap.MiniCqrs.sln --configuration Release --no-restore
+
+      - name: Pack
+        run: dotnet pack Cap.MiniCqrs.sln --configuration Release --no-build --output ./artifacts/packages
+
+      - name: NuGet login (trusted publishing)
+        uses: NuGet/login@v1
+        id: login
+        with:
+          user: Korop
+
+      - name: Publish Cap.MiniCqrs to NuGet.org
+        run: |
+          for pkg in artifacts/packages/Cap.MiniCqrs.*.nupkg; do
+            dotnet nuget push "$pkg" \
+              --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" \
+              --source "https://api.nuget.org/v3/index.json" \
+              --skip-duplicate
+          done
+
+      - name: Publish Cap.MiniCqrs.Caching.Memory to NuGet.org
+        run: |
+          for pkg in artifacts/packages/Cap.MiniCqrs.Caching.Memory.*.nupkg; do
+            dotnet nuget push "$pkg" \
+              --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" \
+              --source "https://api.nuget.org/v3/index.json" \
+              --skip-duplicate
+          done

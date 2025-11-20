@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackageId>Cap.MiniCqrs</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Capybaras</Authors>
+    <Company>Capybaras</Company>
+    <PackageDescription>Fast-path CQRS dispatcher with DI-friendly abstractions.</PackageDescription>
+    <RepositoryUrl>https://github.com/Korop/cap_minicqrs</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>CQRS;Dispatcher;Mediator;DI</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+  </ItemGroup>
+</Project>

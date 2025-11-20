@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackageId>Cap.MiniCqrs.Caching.Memory</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Capybaras</Authors>
+    <Company>Capybaras</Company>
+    <PackageDescription>In-memory cache implementation and behaviors for Cap.MiniCqrs.</PackageDescription>
+    <RepositoryUrl>https://github.com/Korop/cap_minicqrs</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>CQRS;Dispatcher;Caching;Memory</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Cap.MiniCqrs/Cap.MiniCqrs.csproj" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Hybrid" Version="9.3.0" />
+  </ItemGroup>
+</Project>

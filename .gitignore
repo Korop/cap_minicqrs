@@ -1,0 +1,66 @@
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Visual Studio cache files
+.vs/
+.vscode/
+
+# Rider files
+.idea/
+*.sln.iml
+
+# Resharper files
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# Tooling
+.DS_Store
+
+# Test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.[Pp]ublish.xml
+*.[Pp]fx
+*.[Cc]ert
+*.ntvs_analysis.dat
+*.csproj.AssemblyReference.cache
+
+# NuGet Packages
+*.nupkg
+# The packages folder can be ignored because of Package Restore
+**/[Pp]ackages/*
+# except build/, which is used as an MSBuild target.
+!**/[Pp]ackages/build/
+# Uncomment if you are using Paket
+#.paket/paket.exe
+
+# Roslyn files
+*.ruleset
+
+# Backup & report files from converting an old project file
+UpgradeLog*.XML
+Backup*/
+UpgradeReport*.htm
+
+# Mac files
+*.swp
+
+# CodeMaid files
+*.codemaid

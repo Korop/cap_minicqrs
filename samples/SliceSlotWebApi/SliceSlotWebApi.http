@@ -1,0 +1,32 @@
+@host = http://localhost:5000
+
+### Init game session
+POST {{host}}/api/game/init
+Content-Type: application/json
+
+{
+  "playerId": "demo-player",
+  "bet": 5,
+  "messageId": 1
+}
+
+### Spin reels
+POST {{host}}/api/game/spin
+Content-Type: application/json
+
+{
+  "playerId": "demo-player",
+  "messageId": 2
+}
+
+### Collect winnings
+POST {{host}}/api/game/collect
+Content-Type: application/json
+
+{
+  "playerId": "demo-player",
+  "messageId": 3
+}
+
+### Get balance snapshot
+GET {{host}}/api/game/balance/demo-player
